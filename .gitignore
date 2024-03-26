@@ -47,3 +47,4 @@ _deps
 # Build files and folders
 **/build/
 **/.cache/
+cmake-build-debug/
