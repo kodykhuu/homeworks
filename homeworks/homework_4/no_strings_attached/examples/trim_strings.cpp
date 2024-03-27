@@ -9,7 +9,7 @@ int main() {
     std::string input {};
     std::getline(std::cin, input);
 
-    std::cout << "Your trimmed string: " << strman::Trim(input) << '\n';
+    std::cout << "Your trimmed string: '" << strman::Trim(input) << "\'\n";
 
     return 0;
 }
