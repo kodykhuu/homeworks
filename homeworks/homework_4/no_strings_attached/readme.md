@@ -1,0 +1,1 @@
+Simple library to split / trim strings
