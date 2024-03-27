@@ -31,3 +31,11 @@ TEST(String_split, TestDelimNotInString) {
     ASSERT_THAT(strman::Split("aaabaaba"s, "z"s), ::testing::ElementsAre("aaabaaba"));
     ASSERT_THAT(strman::Split("hello world"s, "z"s), ::testing::ElementsAre("hello world"));
 }
+
+TEST(String_split, TestStrippedEquality) {
+    ASSERT_THAT(strman::Split("aaabaaba"s, "aa"s, 1), ::testing::ElementsAre(""));
+}
+
+TEST(String_split, TestStrippedMoreThanSplits) {
+    ASSERT_THAT(strman::Split("aaabaaba"s, "aa"s, 4), ::testing::ElementsAre("", "ab", "ba"));
+}

@@ -24,4 +24,12 @@ namespace strman {
         splitString.push_back(substring);
         return splitString;
     }
+
+    std::vector<std::string> Split(const std::string& str, const std::string& delimiter, int number_of_chunks_to_keep) {
+        std::vector<std::string> splitString { Split(str, delimiter) };
+        if(number_of_chunks_to_keep > splitString.size()) { return splitString; }
+
+        std::vector<std::string> stripped { splitString.begin(), splitString.begin() + number_of_chunks_to_keep };
+        return stripped;
+    }
 }
