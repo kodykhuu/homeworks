@@ -4,7 +4,7 @@
 
 int main() {
     std::cout << "Example program that trims strings.\n";
-    std::cout << "Please enter a string: ";
+    std::cout << "Please enter a string:\n";
 
     std::string input {};
     std::getline(std::cin, input);
