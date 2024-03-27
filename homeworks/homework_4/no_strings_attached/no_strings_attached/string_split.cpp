@@ -1,7 +1,8 @@
 #include "string_split.h"
 #include <vector>
 #include <string>
-namespace strman {
+
+namespace no_strings_attached {
     std::vector<std::string> Split(const std::string& str, const std::string& delimiter) {
         if(delimiter.empty()) {
             return std::vector { str };

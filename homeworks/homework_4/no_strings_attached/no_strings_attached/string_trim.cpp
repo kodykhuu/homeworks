@@ -1,8 +1,8 @@
 #include "string_trim.h"
 
 #include <string>
-#include <iostream>
-namespace strman {
+
+namespace no_strings_attached {
     std::string Trim(const std::string& str, char char_to_trim, Side side) {
 
         std::size_t leftInd = 0;

@@ -2,7 +2,7 @@
 #define STRING_TRIM_H
 
 #include <string>
-namespace strman {
+namespace no_strings_attached {
 
     enum class Side {
         kLeft,

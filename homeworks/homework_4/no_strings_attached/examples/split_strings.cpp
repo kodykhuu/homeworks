@@ -10,7 +10,7 @@ int main() {
     std::getline(std::cin, input);
 
     std::cout << "Your split string: ";
-    for(const auto& str : strman::Split(input, " ")) {
+    for(const auto& str : no_strings_attached::Split(input, " ")) {
         std::cout << '\'' << str << "\' ";
     }
     std::cout << '\n';
