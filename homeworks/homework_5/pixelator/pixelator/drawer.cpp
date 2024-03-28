@@ -6,12 +6,17 @@ namespace pixelator {
 
 void Drawer::Draw() {
   ftxui::Screen screen { ftxui::Screen::Create(m_dimensions) };
-  for(int i {0}; i < rows(); ++i) {
-    screen.PixelAt(i, i).background_color = m_image.at(0, 0);
-    screen.PixelAt(i, i).character = ' ';
-    screen.PixelAt(i+1, i).background_color = m_image.at(0, 0);
-    screen.PixelAt(i+1, i).character = ' ';
+  for(int i {0}; i < cols(); ++i) {
+    for(int j {0}; j < rows(); ++j) {
+      screen.PixelAt(i, j).background_color = m_image.at(j, i);
+      screen.PixelAt(i, j).character = ' ';
+      screen.PixelAt(i+1, j).background_color = m_image.at(j, i);
+      screen.PixelAt(i+1, j).character = ' ';
+    }
+
   }
+
+  screen.Print();
 
 }
 

@@ -1,7 +1,8 @@
 #ifndef STB_IMAGE_DATA_VIEW_HPP
 #define STB_IMAGE_DATA_VIEW_HPP
 
-#include "stb/stb_image.h"
+#include <stb/stb_image.h>
+#include <ftxui/screen/color.hpp>
 
 #include <filesystem>
 
@@ -36,7 +37,11 @@ public:
     return m_size.row == 0 && m_size.col == 0;
   }
 
-  //TODO ftxui::Color at(int row, int col) {}
+  [[nodiscard]] ftxui::Color at(int row, int col) const {
+    const int index { m_channels * (row * cols() + col) };
+    ftxui::Color color {ftxui::Color::RGB(m_image_data[index], m_image_data[index + 1], m_image_data[index + 2] )};
+    return color;
+  }
 
   StbImageDataView(StbImageDataView&& stbImageDataView) noexcept
     : m_image_data { stbImageDataView.m_image_data }
@@ -63,6 +68,7 @@ public:
 private:
   stbi_uc* m_image_data {};
   pixelator::Size m_size {};
+  int m_channels {};
 
 };
 

@@ -25,5 +25,6 @@ int main(int argc, char **argv) {
 
   drawer.Set(PixelateImage(image, drawer.size()));
   drawer.Draw();
+
   return 0;
 }
