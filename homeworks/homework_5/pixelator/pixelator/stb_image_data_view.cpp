@@ -18,8 +18,6 @@ StbImageDataView::StbImageDataView(const std::filesystem::path& image_path) {
     std::cerr << "Failed to load image data from file: " << image_path
               << std::endl;
   }
-
-
 }
 
 }

@@ -34,7 +34,7 @@ public:
   }
 
   [[nodiscard]] bool empty() const {
-    return m_size.row == 0 && m_size.col == 0;
+    return m_size.row == 0 || m_size.col == 0;
   }
 
   [[nodiscard]] ftxui::Color at(int row, int col) const {

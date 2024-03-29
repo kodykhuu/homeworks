@@ -13,7 +13,7 @@ namespace pixelator {
 class Drawer {
 public:
   explicit Drawer(ftxui::Dimensions dimension)
-    : m_dimensions { dimension }, m_image {}
+    : m_dimensions { dimension }
   {}
 
   [[nodiscard]] int rows() const {
@@ -29,7 +29,7 @@ public:
   }
 
   void Set(Image image) {
-    m_image = std::move(image);
+    m_image = image;
   }
 
   void Draw();

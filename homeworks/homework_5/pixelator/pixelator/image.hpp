@@ -24,7 +24,7 @@ public:
   }
 
   [[nodiscard]] bool empty() const {
-    return m_rows == 0 && m_cols == 0;
+    return m_rows == 0 || m_cols == 0;
   }
 
   [[nodiscard]] Size size() const {
@@ -32,7 +32,11 @@ public:
   }
 
   ftxui::Color& at(int row, int col) {
-    return m_pixelColors[(row * cols()) + col];
+    const auto index { static_cast<size_t>((row * cols()) + col) };
+    if(index >= m_pixelColors.size()) {
+      throw std::out_of_range("Out of range");
+    }
+    return m_pixelColors[index];
   }
 
 private:
