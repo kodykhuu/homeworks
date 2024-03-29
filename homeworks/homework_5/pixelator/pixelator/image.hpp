@@ -15,6 +15,10 @@ public:
     : m_rows { rows }, m_cols { cols }, m_pixelColors( m_rows * m_cols )
   {}
 
+  Image(pixelator::Size size)
+    : m_rows { size.rows }, m_cols { size.cols }, m_pixelColors( m_rows * m_cols )
+  {}
+
   [[nodiscard]] int rows() const {
     return m_rows;
   }

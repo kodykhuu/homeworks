@@ -9,8 +9,8 @@
 namespace pixelator {
 
 struct Size {
-  int row{};
-  int col{};
+  int rows{};
+  int cols{};
 };
 
 class StbImageDataView {
@@ -26,15 +26,15 @@ public:
   }
 
   [[nodiscard]] int rows() const {
-    return m_size.row;
+    return m_size.rows;
   }
 
   [[nodiscard]] int cols() const {
-    return m_size.col;
+    return m_size.cols;
   }
 
   [[nodiscard]] bool empty() const {
-    return m_size.row == 0 || m_size.col == 0;
+    return m_size.rows == 0 || m_size.cols == 0;
   }
 
   [[nodiscard]] ftxui::Color at(int row, int col) const {
