@@ -35,7 +35,7 @@ public:
     return { m_rows, m_cols };
   }
 
-  ftxui::Color& at(int row, int col) {
+  ftxui::Color at(int row, int col) const {
     const auto index { static_cast<size_t>((row * cols()) + col) };
     if(index >= m_pixelColors.size()) {
       throw std::out_of_range("Out of range");
