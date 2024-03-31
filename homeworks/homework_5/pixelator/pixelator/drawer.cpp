@@ -23,7 +23,7 @@ void Drawer::Draw() {
 }
 
 std::string Drawer::ToString() {
-  return "\\x1B[39m\\x1B[40m \\x1B[39m\\x1B[49m";
+  return "\x1B[39m\x1B[40m \x1B[39m\x1B[49m";
 }
 
 }
