@@ -34,7 +34,7 @@ public:
   }
 
   [[nodiscard]] bool empty() const {
-    return m_size.rows == 0 && m_size.cols == 0;
+    return m_size.rows == 0 || m_size.cols == 0;
   }
 
   [[nodiscard]] ftxui::Color at(int row, int col) const {
@@ -44,7 +44,7 @@ public:
   }
 
   StbImageDataView(StbImageDataView&& stbImageDataView) noexcept
-    : m_image_data { stbImageDataView.m_image_data }
+    : m_image_data { stbImageDataView.m_image_data }, m_size { stbImageDataView.m_size }
   {
         stbImageDataView.m_image_data = nullptr;
   }
@@ -53,6 +53,8 @@ public:
         if(&stbImageDataView == this) {
           return *this;
         }
+
+        m_size = stbImageDataView.m_size;
 
         stbi_image_free(m_image_data);
 
