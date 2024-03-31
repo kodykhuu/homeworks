@@ -46,24 +46,24 @@ public:
   }
 
   StbImageDataView(StbImageDataView&& stbImageDataView) noexcept
-    : m_image_data { stbImageDataView.m_image_data }, m_size { 0, 0 }
+    : m_image_data { stbImageDataView.m_image_data }
   {
-        stbImageDataView.m_image_data = nullptr;
+    stbImageDataView.m_size = {0, 0};
+    stbImageDataView.m_image_data = nullptr;
   }
 
   StbImageDataView& operator=(StbImageDataView&& stbImageDataView) noexcept {
-        if(&stbImageDataView == this) {
-          return *this;
-        }
+    if(&stbImageDataView == this) {
+      return *this;
+    }
 
-        m_size = {0, 0};
+    stbImageDataView.m_size = {0, 0};
+    stbi_image_free(m_image_data);
 
-        stbi_image_free(m_image_data);
+    m_image_data = stbImageDataView.m_image_data;
+    stbImageDataView.m_image_data = nullptr;
 
-        m_image_data = stbImageDataView.m_image_data;
-        stbImageDataView.m_image_data = nullptr;
-
-        return *this;
+    return *this;
   }
 
   StbImageDataView(const StbImageDataView& stbImageDataView) = delete;

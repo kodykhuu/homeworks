@@ -23,7 +23,15 @@ void Drawer::Draw() {
 }
 
 std::string Drawer::ToString() {
-  return {};
+  std::string drawer_string {};
+  for(int i {0}; i < cols(); ++i) {
+    for(int j {0}; j < rows(); ++j) {
+      drawer_string += m_image.at(j, i).Print(true);
+    }
+
+  }
+
+  return drawer_string;
 }
 
 }
