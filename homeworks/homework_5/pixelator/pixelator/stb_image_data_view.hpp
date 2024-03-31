@@ -46,7 +46,7 @@ public:
   }
 
   StbImageDataView(StbImageDataView&& stbImageDataView) noexcept
-    : m_image_data { stbImageDataView.m_image_data }
+    : m_image_data { stbImageDataView.m_image_data }, m_size { stbImageDataView.m_size }
   {
     stbImageDataView.m_size = {0, 0};
     stbImageDataView.m_image_data = nullptr;
@@ -56,12 +56,13 @@ public:
     if(&stbImageDataView == this) {
       return *this;
     }
-
-    stbImageDataView.m_size = {0, 0};
     stbi_image_free(m_image_data);
 
     m_image_data = stbImageDataView.m_image_data;
+    m_size = { stbImageDataView.m_size };
+    
     stbImageDataView.m_image_data = nullptr;
+    stbImageDataView.m_size = {0, 0};
 
     return *this;
   }
