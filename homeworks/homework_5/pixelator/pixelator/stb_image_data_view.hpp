@@ -5,7 +5,6 @@
 #include <ftxui/screen/color.hpp>
 
 #include <filesystem>
-#include <iostream>
 
 namespace pixelator {
 
@@ -35,7 +34,6 @@ public:
   }
 
   [[nodiscard]] bool empty() const {
-    std::cout << m_size.rows << " " << m_size.cols << '\n';
     return m_size.rows == 0 || m_size.cols == 0;
   }
 
@@ -46,9 +44,10 @@ public:
   }
 
   StbImageDataView(StbImageDataView&& stbImageDataView) noexcept
-    : m_image_data { stbImageDataView.m_image_data }, m_size { stbImageDataView.m_size }
+    : m_image_data { stbImageDataView.m_image_data }, m_size { stbImageDataView.m_size }, m_channels { stbImageDataView.m_channels }
   {
     stbImageDataView.m_size = {0, 0};
+    stbImageDataView.m_channels = 0;
     stbImageDataView.m_image_data = nullptr;
   }
 
@@ -58,11 +57,13 @@ public:
     }
     stbi_image_free(m_image_data);
 
+    m_size = stbImageDataView.m_size;
+    m_channels = stbImageDataView.m_channels;
     m_image_data = stbImageDataView.m_image_data;
-    m_size = { stbImageDataView.m_size };
-    
-    stbImageDataView.m_image_data = nullptr;
+
     stbImageDataView.m_size = {0, 0};
+    stbImageDataView.m_channels = 0;
+    stbImageDataView.m_image_data = nullptr;
 
     return *this;
   }
