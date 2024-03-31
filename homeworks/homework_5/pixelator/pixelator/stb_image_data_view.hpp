@@ -5,6 +5,7 @@
 #include <ftxui/screen/color.hpp>
 
 #include <filesystem>
+#include <iostream>
 
 namespace pixelator {
 
@@ -34,6 +35,7 @@ public:
   }
 
   [[nodiscard]] bool empty() const {
+    std::cout << m_size.rows << " " << m_size.cols << '\n';
     return m_size.rows == 0 || m_size.cols == 0;
   }
 
