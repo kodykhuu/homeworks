@@ -9,11 +9,11 @@ Image PixelateImage(const StbImageDataView& image, Size size) {
 
 //  const int scaled_rows { Scale(image.rows(), smallest_factor) };
 //  const int scaled_cols { Scale(image.cols(), smallest_factor) };
-
-  if(image.rows() < size.rows && image.cols() < size.cols) {
-    size.rows = image.rows();
-    size.cols = image.cols();
-  }
+//
+//  if(image.rows() < size.rows && image.cols() < size.cols) {
+//    size.rows = image.rows();
+//    size.cols = image.cols();
+//  }
 
   Image pixelated_image { size.rows, size.cols };
 
