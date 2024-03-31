@@ -17,15 +17,15 @@ Image PixelateImage(const StbImageDataView& image, Size size) {
 
   Image pixelated_image { size.rows, size.cols };
 
-  for(int i { 0 }; i < pixelated_image.rows(); ++i) {
-    for(int j { 0 }; j < pixelated_image.cols(); ++j) {
-//      pixelated_image.at(i, j+1) = image.at(i, j);
-//      pixelated_image.at(i, j+2) = image.at(i, j);
+//  for(int i { 0 }; i < pixelated_image.rows(); ++i) {
+//    for(int j { 0 }; j < pixelated_image.cols(); ++j) {
+////      pixelated_image.at(i, j+1) = image.at(i, j);
+////      pixelated_image.at(i, j+2) = image.at(i, j);
+////
 //
-
-      pixelated_image.at(i, j) = image.at(i, j);
-    }
-  }
+//      pixelated_image.at(i, j) = image.at(i, j);
+//    }
+//  }
 
   return pixelated_image;
 }
